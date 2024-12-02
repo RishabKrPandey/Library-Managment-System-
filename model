@@ -1,0 +1,19 @@
+class User(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    username = db.Column(db.String(50), nullable=False, unique = True)
+    password = db.Column(db.String(50), nullable=False)
+    name = db.Column(db.String())
+
+class Book(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    title = db.Column(db.String(50), nullable=False, unique = True)
+    author = db.Column(db.String(50), nullable=False)
+    content = db.Column(db.String(50), nullable=False)
+    section = db.relationship('Section', backref=db.backref('Book', lazy=True))
+
+
+class Section(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    sec_name = db.Column(db.String(50), nullable=False, unique = True)
+    dos = db.Column(db.String(50), nullable=False)
+    description = db.Column(db.String, nullable=False)

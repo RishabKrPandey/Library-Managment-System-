@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{{ book.b_title }}</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css">
+    <style>
+        body {
+            padding-top: 20px;
+        }
+        .container {
+            max-width: 800px;
+        }
+        .book-title {
+            margin-bottom: 20px;
+        }
+        .book-content {
+            margin-top: 20px;
+        }
+        .feedback-form{
+            margin: 68px auto; 
+            max-width: 556px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 class="text-center book-title">{{ book.b_title }}</h1>
+        <div class="card">
+            <div class="card-body">
+                <p class="book-content">{{ book.content }}</p>
+            </div>
+        </div>
+    </div>
+    <div class="feedback-form">
+        <h5>Your Feedback</h5>
+        <form action="/submit_feedback/{{ book.id }}" method="post">
+            <div class="mb-3">
+                <textarea class="form-control" id="feedback" name="feedback" rows="3"></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary">Submit Feedback</button>
+        </form>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
